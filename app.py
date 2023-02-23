@@ -111,17 +111,6 @@ def _generate_dice_faces_rows(dice_faces):
     return dice_faces_rows
 
 
-# ~~~ App's main code block ~~~
-# Get and validate user input
-num_dice_input = input("How many dice do you want to roll? [1-6] ")
-num_dice = parse_input(num_dice_input)
-# Roll dice
-roll_results = roll_dice(num_dice)
-# Generate ASCII diagram of dice faces
-dice_face_diagram = generate_dice_faces_diagram(roll_results)
-# Display diagram
-print(f"\n{dice_face_diagram}")
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -130,8 +119,15 @@ def home():
 
 @app.route('/roll_dice', methods=['POST'])
 def roll_dice_route():
-    num_dice_input = request.form['num_dice']
-    num_dice = parse_input(num_dice_input)
-    roll_results = roll_dice(num_dice)
-    dice_face_diagram = generate_dice_faces_diagram(roll_results)
-    return render_template('roll_dice.html', dice_face_diagram=dice_face_diagram)
+    if request.method == 'POST':
+        num_dice_input = request.form['num_dice']
+        num_dice = parse_input(num_dice_input)
+        roll_results = roll_dice(num_dice)
+        dice_faces = _get_dice_faces(roll_results)
+        dice_faces_rows = _generate_dice_faces_rows(dice_faces)
+        dice_face_diagram = "\n".join(dice_faces_rows)
+        return render_template('roll_dice.html', dice_face_diagram=dice_face_diagram)
+
+
+if __name__ == '__main__':
+    app.run(debug=True, host='localhost', port=8000)
