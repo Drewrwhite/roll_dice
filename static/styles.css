@@ -57,7 +57,7 @@ button[type="submit"] {
   /* Style the ASCII art dice diagram */
 pre {
     margin: 20px auto;
-    max-width: 600px;
+    display: inline-block;
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 5px;
