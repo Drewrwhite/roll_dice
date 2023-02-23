@@ -1,10 +1,10 @@
-# Dice Roller - Flask Deployment
+aA# Dice Roller - Flask Deployment
 
-### By [**Drew White**](https://www.linkedin.com/in/drew-riley-white/)
+### By <a target="_blank" href="https://www.linkedin.com/in/drew-riley-white/">Drew White</a>
 
 ### Link:
 
-[Flask Deployment](http://swarmgbln.pythonanywhere.com/)
+<a target="_blank" href="http://swarmgbln.pythonanywhere.com/">Flask Deployment</a>
 
 ## Technologies Used
 
