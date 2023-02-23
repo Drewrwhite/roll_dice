@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dice Roller</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Dice Roller</h1>
+  </header>
+  <form action="{{ url_for('roll_dice_route') }}" method="post">
+    <label for="num_dice">How many dice do you want to roll? [1-6]</label>
+    <input type="number" id="num_dice" name="num_dice" min="1" max="6" required>
+    <button type="submit">Roll the dice!</button>
+  </form>
+</body>
+</html>

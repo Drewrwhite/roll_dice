@@ -1,0 +1,73 @@
+/* Set the font family and size for the entire page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    }
+
+  /* Style the header */
+header {
+    background-color: #212529;
+    color: #fff;
+    padding: 10px;
+    }
+
+  /* Style the "Dice Roller" text in the header */
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    }
+
+  /* Style the form */
+form {
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+  /* Style the form label */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    }
+
+  /* Style the form input */
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    }
+
+  /* Style the form button */
+button[type="submit"] {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+
+  /* Style the ASCII art dice diagram */
+pre {
+    margin: 20px auto;
+    display: inline-block;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: pre-wrap;
+    font-size: 24px;
+    }
+
+  /* Style the "Roll again" link */
+a {
+    color: #007bff;
+    text-decoration: none;
+    }
