@@ -1,4 +1,4 @@
-aA# Dice Roller - Flask Deployment
+## Dice Roller - Flask Deployment
 
 ### By <a target="_blank" href="https://www.linkedin.com/in/drew-riley-white/">Drew White</a>
 
