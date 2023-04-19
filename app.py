@@ -1,55 +1,16 @@
-from flask import Flask, request, render_template
-import random
-
+from flask import Flask, request, render_template, url_for
 import random
 
 DICE_ART = {
-    1: (
-        "┌─────────┐",
-        "│         │",
-        "│    ●    │",
-        "│         │",
-        "└─────────┘",
-    ),
-    2: (
-        "┌─────────┐",
-        "│  ●      │",
-        "│         │",
-        "│      ●  │",
-        "└─────────┘",
-    ),
-    3: (
-        "┌─────────┐",
-        "│  ●      │",
-        "│    ●    │",
-        "│      ●  │",
-        "└─────────┘",
-    ),
-    4: (
-        "┌─────────┐",
-        "│  ●   ●  │",
-        "│         │",
-        "│  ●   ●  │",
-        "└─────────┘",
-    ),
-    5: (
-        "┌─────────┐",
-        "│  ●   ●  │",
-        "│    ●    │",
-        "│  ●   ●  │",
-        "└─────────┘",
-    ),
-    6: (
-        "┌─────────┐",
-        "│  ●   ●  │",
-        "│  ●   ●  │",
-        "│  ●   ●  │",
-        "└─────────┘",
-    ),
+    1: "images/dice-1.png",
+    2: "images/dice-2.png",
+    3: "images/dice-3.png",
+    4: "images/dice-4.png",
+    5: "images/dice-5.png",
+    6: "images/dice-6.png",
 }
-DIE_HEIGHT = len(DICE_ART[1])
-DIE_WIDTH = len(DICE_ART[1][0])
-DIE_FACE_SEPARATOR = " "
+DIE_HEIGHT = 100
+DIE_WIDTH = 100
 
 def parse_input(input_string):
     """Return `input_string` as num between 1 and 6.
@@ -63,52 +24,34 @@ def parse_input(input_string):
         raise SystemExit(1)
 
 def roll_dice(num_dice):
-  """ Return list of integers with length `num_dice`
-  Each num in return list is random num between 1 - 6 
-  """
-  roll_results = []
-  for _ in range(num_dice):
-    roll = random.randint(1, 6)
-    roll_results.append(roll)
-  return roll_results
+    """ Return list of integers with length `num_dice`
+    Each num in return list is random num between 1 - 6
+    """
+    roll_results = []
+    for _ in range(num_dice):
+        roll = random.randint(1, 6)
+        roll_results.append(roll)
+    return roll_results
 
 def generate_dice_faces_diagram(dice_values):
-  """ Return ASCII diagram of dice faces for results
-  """
-  # Generate dice faces in list
-  dice_faces = []
-  for value in dice_values:
-    dice_faces.append(DICE_ART[value])
-  # Generate dice face rows in list
-  dice_faces_rows = []
-  for row_idx in range(DIE_HEIGHT):
-    row_components = []
-    for die in dice_faces:
-      row_components.append(die[row_idx])
-    row_string = DIE_FACE_SEPARATOR.join(row_components)
-    dice_faces_rows.append(row_string)
-  # Generate header for RESULTS centered
-  width = len(dice_faces_rows[0])
-  diagram_header = " RESULTS ".center(width, "~")
-
-  dice_faces_diagram = "\n".join([diagram_header] + dice_faces_rows)
-  return dice_faces_diagram
-
-def _get_dice_faces(dice_values):
-    dice_faces = []
+    """Return HTML code for displaying dice images for results."""
+    # Generate dice images in list
+    dice_images = []
     for value in dice_values:
-        dice_faces.append(DICE_ART[value])
-    return dice_faces
+        dice_images.append(DICE_ART[value])
+    # Generate HTML code for displaying dice images
+    dice_images_html = ""
+    for image in dice_images:
+        dice_images_html += '<img src="{}" height="{}" width="{}" alt="Dice">\n'.format(
+            url_for("static", filename=image), DIE_HEIGHT, DIE_WIDTH
+        )
+    # Generate header for RESULTS centered
+    diagram_header = '<h2 style="text-align:center">RESULTS</h2>'
+    # Wrap dice images in new div element with class
+    dice_images_html = '<div class="dice-images">' + dice_images_html + '</div>'
+    dice_face_diagram = diagram_header + dice_images_html
+    return dice_face_diagram
 
-def _generate_dice_faces_rows(dice_faces):
-    dice_faces_rows = []
-    for row_idx in range(DIE_HEIGHT):
-        row_components = []
-        for die in dice_faces:
-            row_components.append(die[row_idx])
-        row_string = DIE_FACE_SEPARATOR.join(row_components)
-        dice_faces_rows.append(row_string)
-    return dice_faces_rows
 
 
 app = Flask(__name__)
@@ -123,11 +66,8 @@ def roll_dice_route():
         num_dice_input = request.form['num_dice']
         num_dice = parse_input(num_dice_input)
         roll_results = roll_dice(num_dice)
-        dice_faces = _get_dice_faces(roll_results)
-        dice_faces_rows = _generate_dice_faces_rows(dice_faces)
-        dice_face_diagram = "\n".join(dice_faces_rows)
-        return render_template('roll_dice.html', dice_face_diagram=dice_face_diagram)
-
+        dice_faces_diagram = generate_dice_faces_diagram(roll_results)
+        return render_template('roll_dice.html', dice_face_diagram=dice_faces_diagram)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='localhost', port=8000)
+    app.run(debug=True, host='localhost', port=5000)
