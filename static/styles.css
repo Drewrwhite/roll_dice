@@ -1,73 +1,88 @@
 /* Set the font family and size for the entire page */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18px;
-    }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  background-color: #000000;
+  color: #eee;
+}
 
-  /* Style the header */
+/* Style the header */
 header {
-    background-color: #212529;
-    color: #fff;
-    padding: 10px;
-    }
+  background-color: #212529;
+  color: #fff;
+  padding: 10px;
+}
 
-  /* Style the "Dice Roller" text in the header */
+/* Style the "Dice Roller" text in the header */
 header h1 {
-    margin: 0;
-    font-size: 36px;
-    }
+  margin: 0;
+  font-size: 36px;
+}
 
-  /* Style the form */
+/* Style the form */
 form {
-    margin: 20px auto;
-    max-width: 400px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  /* Style the form label */
+/* Style the form label */
 label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-    }
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #eee;
+}
 
-  /* Style the form input */
+/* Style the form input */
 input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    }
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #444;
+  color: #eee;
+}
 
-  /* Style the form button */
+/* Style the form button */
 button[type="submit"] {
-    display: block;
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    }
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background-color: #53a6ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  /* Style the ASCII art dice diagram */
-pre {
-    margin: 20px auto;
-    display: inline-block;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    white-space: pre-wrap;
-    font-size: 24px;
-    }
-
-  /* Style the "Roll again" link */
+/* pre {
+  text-align: center;
+  margin: 20px auto;
+  display: inline-block;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: pre-wrap;
+  font-size: 24px;
+  color: #eee;
+} */
+/* Style the "Roll again" link */
 a {
-    color: #007bff;
-    text-decoration: none;
-    }
+  color: #53a6ff;
+  text-decoration: none;
+}
+
+/* Center the dice images */
+.dice-images {
+  text-align: center;
+}
+This should center the dice images in the output.
+
+
+
+

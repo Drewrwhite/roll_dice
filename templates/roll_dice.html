@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <title>Dice Roller Results</title>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  <base href="{{ request.script_root }}/">
 </head>
 <body>
-  <pre>{{ dice_face_diagram }}</pre>
+  <pre>{{ dice_face_diagram|safe }}</pre>
   <br>
-  <p><a href="/">Roll again</a></p>
+  <p><a class="button" href="/">Roll Again</a></p>
 </body>
 </html>
