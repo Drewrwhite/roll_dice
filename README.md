@@ -13,7 +13,7 @@
 [Flask Deployment](http://swarmgbln.pythonanywhere.com/)
 ## Description
 
- _Dice roller that uses ASCII diagrams for visualization and randomizes results. User can choose up to 6 dice to roll. This project uses Flask to deploy Python to web and allow user interaction._ 
+ _Dice roller that uses dice images for visualization and randomizes results. User can choose up to 6 dice to roll. This project uses Flask to deploy Python to web and allow user interaction._ 
 
 
 ## Setup/Installation Requirements
